@@ -1,12 +1,10 @@
 FROM node:latest
-MAINTAINER Christian Lück <christian@lueck.tv>
+LABEL maintainer="Jason Lam <jlam@palo-it.com>"
 
-RUN npm install -g json-server
+RUN npm install -g json-server && \
+    mkdir /data
 
-WORKDIR /data
-VOLUME /data
-
-EXPOSE 80
+EXPOSE 3000
 ADD run.sh /run.sh
 ENTRYPOINT ["bash", "/run.sh"]
 CMD []
